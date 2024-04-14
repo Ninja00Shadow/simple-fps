@@ -23,6 +23,11 @@ public class Weapon : MonoBehaviour
     public float bulletVelocity = 30f;
     public float bulletPrefabLifetime = 3f;
     
+    public GameObject muzzleFlash;
+    
+    private Animator animator;
+    private static readonly int Recoil = Animator.StringToHash("recoil");
+    
     public enum ShootingMode
     {
         Single,
@@ -36,6 +41,7 @@ public class Weapon : MonoBehaviour
     {
         readyToShoot = true;
         burstBulletsLeft = bulletsPerBurst;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -58,6 +64,11 @@ public class Weapon : MonoBehaviour
 
     private void FireWeapon()
     {
+        muzzleFlash.GetComponent<ParticleSystem>().Play();
+        animator.SetTrigger(Recoil);
+        
+        SoundManager.Instance.shootingSoundM1911.Play();
+        
         readyToShoot = false;
         
         Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
