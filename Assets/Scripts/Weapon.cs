@@ -27,12 +27,19 @@ public class Weapon : MonoBehaviour
     public GameObject muzzleFlash;
     
     private Animator animator;
-    private static readonly int Recoil = Animator.StringToHash("recoil");
     
     // Reloading
     public float reloadTime;
     public int magazineSize, bulletsLeft;
     public bool isReloading;
+    
+    public enum WeaponModel
+    {
+        M1911,
+        M4
+    }
+    
+    public WeaponModel currentWeaponModel;
     
     public enum ShootingMode
     {
@@ -95,9 +102,9 @@ public class Weapon : MonoBehaviour
         bulletsLeft--;
         
         muzzleFlash.GetComponent<ParticleSystem>().Play();
-        animator.SetTrigger(Recoil);
+        animator.SetTrigger("recoil");
         
-        SoundManager.Instance.shootingSoundM1911.Play();
+        SoundManager.Instance.PlayShootingSound(currentWeaponModel);
         
         readyToShoot = false;
         
@@ -124,7 +131,9 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
-        SoundManager.Instance.reloadSoundM1911.Play();
+        SoundManager.Instance.PlayReloadSound(currentWeaponModel);
+        
+        animator.SetTrigger("reload");
         
         isReloading = true;
         Invoke(nameof(ReloadCompleted), reloadTime);
