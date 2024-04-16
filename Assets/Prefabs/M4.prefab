@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4333513941165884167}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6149622070907669765}
   - component: {fileID: 1607500550698818566}
   - component: {fileID: 1142799925164481569}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rear_Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7862674472691618402}
   - component: {fileID: 2122506576941850130}
   - component: {fileID: 8913976275217989863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,8 @@ GameObject:
   - component: {fileID: 498517641978765225}
   - component: {fileID: 221032687143410095}
   - component: {fileID: 1072629370499476824}
-  m_Layer: 0
+  - component: {fileID: 8243856636577672550}
+  m_Layer: 6
   m_Name: M4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a152e50349ec04fb1018a31a3f37b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActiveWeapon: 0
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.12
@@ -295,7 +297,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096465651246197098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6da165c63a2111a4ea524d98a7614f79, type: 2}
   m_CullingMode: 0
@@ -308,6 +310,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8243856636577672550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3096465651246197098}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3890476667335359323
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +339,7 @@ GameObject:
   - component: {fileID: 645229572195488715}
   - component: {fileID: 4724537585829979245}
   - component: {fileID: 4159502727998868742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +427,7 @@ GameObject:
   - component: {fileID: 6136504100578514537}
   - component: {fileID: 6502700703345101539}
   - component: {fileID: 2579171032261100269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +510,7 @@ GameObject:
   - component: {fileID: 6984238306821161748}
   - component: {fileID: 3840368208593959966}
   - component: {fileID: 6405289940759218600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +593,7 @@ GameObject:
   - component: {fileID: 3267500410431827352}
   - component: {fileID: 7335264950411647862}
   - component: {fileID: 2912826113041596626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuzzleFlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5356,7 +5376,7 @@ GameObject:
   - component: {fileID: 7902193309105481126}
   - component: {fileID: 4492313637778356969}
   - component: {fileID: 8874964685196157386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6354399689047406422}
   - component: {fileID: 8475745497184253373}
   - component: {fileID: 3216688582635918524}
-  m_Layer: 0
+  - component: {fileID: 1087086205481511099}
+  m_Layer: 6
   m_Name: M1911
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a152e50349ec04fb1018a31a3f37b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActiveWeapon: 0
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.3
@@ -97,7 +99,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305276619171242106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9c2880b97c102784c948ed5315f2e3df, type: 2}
   m_CullingMode: 0
@@ -110,6 +112,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1087086205481511099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305276619171242106}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1328130101811415954
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +141,7 @@ GameObject:
   - component: {fileID: 999233796664380559}
   - component: {fileID: 7497155092812074461}
   - component: {fileID: 4017801970154172761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +224,7 @@ GameObject:
   - component: {fileID: 1142811314905271861}
   - component: {fileID: 8586532777902777197}
   - component: {fileID: 49945295428079294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +307,7 @@ GameObject:
   - component: {fileID: 8805333345702895362}
   - component: {fileID: 6454613356778116635}
   - component: {fileID: 666018524792786875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +390,7 @@ GameObject:
   - component: {fileID: 6043765354130710050}
   - component: {fileID: 1509857307586643044}
   - component: {fileID: 7920824311170289455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M1911
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +477,7 @@ GameObject:
   - component: {fileID: 2949968697831373902}
   - component: {fileID: 1815684352107441647}
   - component: {fileID: 8387362419990333344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuzzleFlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5240,7 +5260,7 @@ GameObject:
   - component: {fileID: 3826946859245168455}
   - component: {fileID: 2367608605640442633}
   - component: {fileID: 5137826029385899772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Magazin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5321,7 +5341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383262367544808269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
