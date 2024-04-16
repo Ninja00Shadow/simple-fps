@@ -11,6 +11,11 @@ public class WeaponManager : MonoBehaviour
 
     public GameObject activeWeaponSlot;
 
+    [Header("Ammo")] 
+    public int totalPistolAmmo = 0;
+    public int totalRifleAmmo = 0;
+    
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -101,5 +106,47 @@ public class WeaponManager : MonoBehaviour
             Weapon newWeapon = activeWeaponSlot.transform.GetChild(0).GetComponent<Weapon>();
             newWeapon.isActiveWeapon = true;
         }
+    }
+
+    public void PickupAmmo(AmmoCrate ammoCrate)
+    {
+        totalPistolAmmo += ammoCrate.pistolAmmo;
+        totalRifleAmmo += ammoCrate.rifleAmmo;
+    }
+
+    public void DecreaseTotalAmmo(int bulletsToDecrease, Weapon.WeaponModel weaponModel)
+    {
+        switch (weaponModel)
+        {
+            case Weapon.WeaponModel.M1911:
+                totalPistolAmmo -= bulletsToDecrease;
+                break;
+            case Weapon.WeaponModel.M4:
+                totalRifleAmmo -= bulletsToDecrease;
+                break;
+        }
+    }
+    
+    public void IncreaseTotalAmmo(int bulletsToIncrease, Weapon.WeaponModel weaponModel)
+    {
+        switch (weaponModel)
+        {
+            case Weapon.WeaponModel.M1911:
+                totalPistolAmmo += bulletsToIncrease;
+                break;
+            case Weapon.WeaponModel.M4:
+                totalRifleAmmo += bulletsToIncrease;
+                break;
+        }
+    }
+    
+    public int CheckAmmoLeftFor(Weapon.WeaponModel weaponModel)
+    {
+        return weaponModel switch
+        {
+            Weapon.WeaponModel.M1911 => totalPistolAmmo,
+            Weapon.WeaponModel.M4 => totalRifleAmmo,
+            _ => 0
+        };
     }
 }

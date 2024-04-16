@@ -47,7 +47,7 @@ public class HUDManager : MonoBehaviour
         if (activeWeapon)
         {
             magazineAmmoText.text = $"{activeWeapon.bulletsLeft / activeWeapon.bulletsPerBurst}";
-            totalAmmoText.text = $"{activeWeapon.magazineSize / activeWeapon.bulletsPerBurst}";
+            totalAmmoText.text = WeaponManager.Instance.CheckAmmoLeftFor(activeWeapon.currentWeaponModel).ToString();
             
             Weapon.WeaponModel weaponModel = activeWeapon.currentWeaponModel;
             ammoTypeImage.sprite = GetAmmoSpite(weaponModel);

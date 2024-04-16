@@ -76,11 +76,5 @@ crashlytics-build.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
 
-/Assets/UnityTechnologies
-/Assets/UnityTechnologies.meta
-/Assets/Low Poly Weapons VOL.1
-/Assets/Low Poly Weapons VOL.1.meta
-/Assets/QuickOutline
-/Assets/QuickOutline.meta
-/Assets/FPS Icons Pack
-/Assets/FPS Icons Pack.meta
+/Assets/Imported Assets
+/Assets/Imported Assets.meta

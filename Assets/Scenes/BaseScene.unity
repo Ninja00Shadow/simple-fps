@@ -2014,6 +2014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoveredWeapon: {fileID: 0}
+  hoveredAmmoCrate: {fileID: 0}
 --- !u!4 &839656866
 Transform:
   m_ObjectHideFlags: 0
@@ -3508,6 +3509,142 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1938664794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.362
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.982
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048264551576225042, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_Name
+      value: AmmoCrate (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca8ea405fa75098448c3b1698c114e0c, type: 3}
+--- !u!1001 &2028414896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.541
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.982
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048264551576225042, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_Name
+      value: AmmoCrate (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca8ea405fa75098448c3b1698c114e0c, type: 3}
 --- !u!1 &2128543359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,6 +3678,8 @@ MonoBehaviour:
   - {fileID: 1230520035}
   - {fileID: 191695366}
   activeWeaponSlot: {fileID: 0}
+  totalPistolAmmo: 0
+  totalRifleAmmo: 0
 --- !u!4 &2128543361
 Transform:
   m_ObjectHideFlags: 0
@@ -3582,7 +3721,7 @@ PrefabInstance:
     - target: {fileID: 7860852082888895203, guid: 0bb885217a5b1cb44b32fd8f98373453,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.786
+      value: 4.05
       objectReference: {fileID: 0}
     - target: {fileID: 7860852082888895203, guid: 0bb885217a5b1cb44b32fd8f98373453,
         type: 3}
@@ -3650,7 +3789,7 @@ PrefabInstance:
     - target: {fileID: 8039791414645039474, guid: 96e059d719cfc504b807dcd96816f410,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.07
+      value: 2.87
       objectReference: {fileID: 0}
     - target: {fileID: 8039791414645039474, guid: 96e059d719cfc504b807dcd96816f410,
         type: 3}
@@ -3692,6 +3831,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e059d719cfc504b807dcd96816f410, type: 3}
+--- !u!1001 &3460805021672345434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.982
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703510878573928360, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048264551576225042, guid: ca8ea405fa75098448c3b1698c114e0c,
+        type: 3}
+      propertyPath: m_Name
+      value: AmmoCrate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca8ea405fa75098448c3b1698c114e0c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3724,3 +3931,6 @@ SceneRoots:
   - {fileID: 27520222097927438}
   - {fileID: 1110174576157189807}
   - {fileID: 236263104}
+  - {fileID: 3460805021672345434}
+  - {fileID: 1938664794}
+  - {fileID: 2028414896}

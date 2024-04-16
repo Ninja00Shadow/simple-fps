@@ -84,7 +84,8 @@ public class Weapon : MonoBehaviour
                 isShooting = Input.GetKeyDown(KeyCode.Mouse0); // Click to shoot
             }
 
-            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading &&
+                WeaponManager.Instance.CheckAmmoLeftFor(currentWeaponModel) > 0)
             {
                 Reload();
             }
@@ -99,8 +100,6 @@ public class Weapon : MonoBehaviour
                 burstBulletsLeft = bulletsPerBurst;
                 FireWeapon();
             }
-
-            
         }
     }
 
@@ -148,7 +147,22 @@ public class Weapon : MonoBehaviour
 
     private void ReloadCompleted()
     {
-        bulletsLeft = magazineSize;
+        if (bulletsLeft > 0)
+        {
+            WeaponManager.Instance.IncreaseTotalAmmo(bulletsLeft, currentWeaponModel);
+        }
+        
+        if (WeaponManager.Instance.CheckAmmoLeftFor(currentWeaponModel) > magazineSize)
+        {
+            bulletsLeft = magazineSize;
+            WeaponManager.Instance.DecreaseTotalAmmo(bulletsLeft, currentWeaponModel);
+        }
+        else
+        {
+            bulletsLeft = WeaponManager.Instance.CheckAmmoLeftFor(currentWeaponModel);
+            WeaponManager.Instance.DecreaseTotalAmmo(bulletsLeft, currentWeaponModel);
+        }
+
         isReloading = false;
     }
 
