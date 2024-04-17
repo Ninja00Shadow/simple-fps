@@ -27,6 +27,9 @@ public class HUDManager : MonoBehaviour
 
     public Sprite emptySlotSprite;
     
+    [Header("Crosshair")]
+    public GameObject crosshair;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)

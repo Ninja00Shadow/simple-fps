@@ -9,19 +9,21 @@ public class Weapon : MonoBehaviour
 {
     public bool isActiveWeapon;
 
-
+    [Header("Shooting")]
     public bool isShooting, readyToShoot;
     private bool allowReset = true;
     public float shootingDelay = 2f;
 
-    // Burst fire
+    [Header("Burst")]
     public int bulletsPerBurst = 3;
     public int burstBulletsLeft;
 
-    // Spread
+    [Header("Spread")]
     public float spreadIntensity;
+    public float hipSpreadIntensity;
+    public float adsSpreadIntensity;
 
-    // Bullet
+    [Header("Bullet")]
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30f;
@@ -31,15 +33,18 @@ public class Weapon : MonoBehaviour
 
     internal Animator animator;
 
-    // Reloading
+    [Header("Reload")]
     public float reloadTime;
     public int magazineSize, bulletsLeft;
     public bool isReloading;
 
-    //Spawn coordinates
+    [Header("Spawn Position")]
     public Vector3 spawnPosition;
     public Vector3 spawnRotation;
 
+    [Header("ADS")]
+    public bool isADS;
+    
     public enum WeaponModel
     {
         M1911,
@@ -64,12 +69,24 @@ public class Weapon : MonoBehaviour
         animator = GetComponent<Animator>();
 
         bulletsLeft = magazineSize;
+        
+        spreadIntensity = hipSpreadIntensity;
     }
 
     void Update()
     {
         if (isActiveWeapon)
         {
+            if (Input.GetMouseButtonDown(1))
+            {
+                EnterADS();
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                ExitADS();
+            }
+
             if (bulletsLeft == 0 && isShooting)
             {
                 SoundManager.Instance.emptyMagazineSoundM1911.Play();
@@ -90,7 +107,8 @@ public class Weapon : MonoBehaviour
                 Reload();
             }
 
-            if (readyToShoot && !isShooting && !isReloading && bulletsLeft <= 0)
+            if (readyToShoot && !isShooting && !isReloading && bulletsLeft <= 0 &&
+                WeaponManager.Instance.CheckAmmoLeftFor(currentWeaponModel) > 0)
             {
                 Reload();
             }
@@ -102,13 +120,39 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+    
+    private void EnterADS()
+    {
+        animator.SetTrigger("enterADS");
+        isADS = true;
+        HUDManager.Instance.crosshair.SetActive(false);
+                
+        spreadIntensity = adsSpreadIntensity;
+    }
+    
+    private void ExitADS()
+    {
+        animator.SetTrigger("exitADS");
+        isADS = false;
+        HUDManager.Instance.crosshair.SetActive(true);
+                
+        spreadIntensity = hipSpreadIntensity;
+    }
 
     private void FireWeapon()
     {
         bulletsLeft--;
 
         muzzleFlash.GetComponent<ParticleSystem>().Play();
-        animator.SetTrigger("recoil");
+
+        if (isADS)
+        {
+            animator.SetTrigger("recoilADS");
+        }
+        else
+        {
+            animator.SetTrigger("recoil");
+        }
 
         SoundManager.Instance.PlayShootingSound(currentWeaponModel);
 
@@ -151,7 +195,7 @@ public class Weapon : MonoBehaviour
         {
             WeaponManager.Instance.IncreaseTotalAmmo(bulletsLeft, currentWeaponModel);
         }
-        
+
         if (WeaponManager.Instance.CheckAmmoLeftFor(currentWeaponModel) > magazineSize)
         {
             bulletsLeft = magazineSize;
@@ -184,10 +228,10 @@ public class Weapon : MonoBehaviour
 
         Vector3 direction = targetPoint - bulletSpawn.position;
 
-        float xSpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        float zSpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
         float ySpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
 
-        return direction + new Vector3(xSpread, ySpread, 0);
+        return direction + new Vector3(0, ySpread, zSpread);
     }
 
     private void ResetShot()
