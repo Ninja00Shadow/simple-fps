@@ -28,9 +28,9 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<Bottle>().Shatter();
         }
 
-        if (other.gameObject.CompareTag("Zombie"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Zombie>().TakeDamage(damage);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             
             Destroy(gameObject);
         }
