@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4333513941165884167}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6149622070907669765}
   - component: {fileID: 1607500550698818566}
   - component: {fileID: 1142799925164481569}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Rear_Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7862674472691618402}
   - component: {fileID: 2122506576941850130}
   - component: {fileID: 8913976275217989863}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 221032687143410095}
   - component: {fileID: 1072629370499476824}
   - component: {fileID: 8243856636577672550}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,12 +269,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveWeapon: 0
+  damage: 25
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.12
   bulletsPerBurst: 1
   burstBulletsLeft: 0
   spreadIntensity: 0.1
+  hipSpreadIntensity: 0
+  adsSpreadIntensity: 0
   bulletPrefab: {fileID: 4442445103193933414, guid: e573d781879289b45b425bed80d33c18,
     type: 3}
   bulletSpawn: {fileID: 4333513941165884167}
@@ -287,6 +290,7 @@ MonoBehaviour:
   isReloading: 0
   spawnPosition: {x: 0.15, y: 1.241, z: 0.823}
   spawnRotation: {x: 0, y: 180, z: 0}
+  isADS: 0
   currentWeaponModel: 1
   currentShootingMode: 2
 --- !u!95 &1072629370499476824
@@ -339,7 +343,7 @@ GameObject:
   - component: {fileID: 645229572195488715}
   - component: {fileID: 4724537585829979245}
   - component: {fileID: 4159502727998868742}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +431,7 @@ GameObject:
   - component: {fileID: 6136504100578514537}
   - component: {fileID: 6502700703345101539}
   - component: {fileID: 2579171032261100269}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +514,7 @@ GameObject:
   - component: {fileID: 6984238306821161748}
   - component: {fileID: 3840368208593959966}
   - component: {fileID: 6405289940759218600}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +597,7 @@ GameObject:
   - component: {fileID: 3267500410431827352}
   - component: {fileID: 7335264950411647862}
   - component: {fileID: 2912826113041596626}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MuzzleFlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5376,7 +5380,7 @@ GameObject:
   - component: {fileID: 7902193309105481126}
   - component: {fileID: 4492313637778356969}
   - component: {fileID: 8874964685196157386}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int damage;
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Target"))
         {
-            print("hit " + other.gameObject.name);
-            
             CreateBulletImpactEffect(other);
             
             Destroy(gameObject);
@@ -18,8 +18,6 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Wall"))
         {
-            print("hit wall");
-            
             CreateBulletImpactEffect(other);
             
             Destroy(gameObject);
@@ -27,9 +25,14 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bottle"))
         {
-            print("hit bottle");
-            
             other.gameObject.GetComponent<Bottle>().Shatter();
+        }
+
+        if (other.gameObject.CompareTag("Zombie"))
+        {
+            other.gameObject.GetComponent<Zombie>().TakeDamage(damage);
+            
+            Destroy(gameObject);
         }
     }
 
