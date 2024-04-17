@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -30,16 +32,16 @@ public class Enemy : MonoBehaviour
             _animator.SetTrigger("damage");
         }
     }
-    
-    private void Update()
+
+    private void OnDrawGizmos()
     {
-        if (agent.remainingDistance > 0.1f)
-        {
-            _animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            _animator.SetBool("isWalking", false);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2.5f); // attack range
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 18f); // detection range
+        
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 21f); // stop chase range
     }
 }
