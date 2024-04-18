@@ -8,3 +8,5 @@
 - [Cargo Container](https://assetstore.unity.com/packages/3d/props/industrial/cargo-container-45175?aid=1011lu5No&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker)
 - [Barrels](https://assetstore.unity.com/packages/3d/environments/industrial/barrels-63623?aid=1011lu5No&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker)
 - [Defense Line Vol.3 - Barrier Breaker (FREE)](https://assetstore.unity.com/packages/3d/props/weapons/defense-line-vol-3-barrier-breaker-free-251803?aid=1011lu5No&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker#content)
+- [Blood Gush](https://assetstore.unity.com/packages/vfx/particles/blood-gush-73426)
+- [Zombie sounds](https://assetstore.unity.com/packages/audio/sound-fx/creatures/zombie-voice-audio-pack-free-196645)

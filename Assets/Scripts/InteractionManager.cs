@@ -27,12 +27,18 @@ public class InteractionManager : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, 100))
+        if (Physics.Raycast(ray, out hit, 20))
         {
             GameObject objectHit = hit.transform.gameObject;
             
             if (objectHit.GetComponent<Weapon>() && !objectHit.GetComponent<Weapon>().isActiveWeapon)
             {
+                // Disable outline on previously hovered weapon
+                if (hoveredWeapon)
+                {
+                    hoveredWeapon.GetComponent<Outline>().enabled = false;
+                }
+                
                 hoveredWeapon = objectHit.gameObject.GetComponent<Weapon>();
                 hoveredWeapon.GetComponent<Outline>().enabled = true;
 
@@ -46,12 +52,17 @@ public class InteractionManager : MonoBehaviour
                 if (hoveredWeapon)
                 {
                     hoveredWeapon.GetComponent<Outline>().enabled = false;
-                    // hoveredWeapon = null;
                 }
             }
             
             if (objectHit.GetComponent<AmmoCrate>())
             {
+                // Disable outline on previously hovered ammo crate
+                if (hoveredAmmoCrate)
+                {
+                    hoveredAmmoCrate.GetComponent<Outline>().enabled = false;
+                }
+                
                 hoveredAmmoCrate = objectHit.gameObject.GetComponent<AmmoCrate>();
                 hoveredAmmoCrate.GetComponent<Outline>().enabled = true;
 
@@ -66,7 +77,6 @@ public class InteractionManager : MonoBehaviour
                 if (hoveredAmmoCrate)
                 {
                     hoveredAmmoCrate.GetComponent<Outline>().enabled = false;
-                    // hoveredWeapon = null;
                 }
             }
         }

@@ -30,10 +30,28 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            if (!other.gameObject.GetComponent<Enemy>().isDead)
+            {
+                other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            }
+            
+            CreateBloodSprayEffect(other);
             
             Destroy(gameObject);
         }
+    }
+
+    private void CreateBloodSprayEffect(Collision objectWeHit)
+    {
+        ContactPoint contact = objectWeHit.contacts[0];
+
+        GameObject bloodSprayPrefab = Instantiate(
+            GlobalReferences.Instance.bloodSplatterEffectPrefab,
+            contact.point,
+            Quaternion.LookRotation(contact.normal)
+        );
+        
+        bloodSprayPrefab.transform.SetParent(objectWeHit.gameObject.transform);
     }
 
     void CreateBulletImpactEffect(Collision objectWeHit)

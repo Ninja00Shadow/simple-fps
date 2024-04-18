@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     
     private NavMeshAgent agent;
     
+    public bool isDead;
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -26,10 +28,16 @@ public class Enemy : MonoBehaviour
         {
             int random = Random.Range(0, 2) + 1;
             _animator.SetTrigger("die" + random);
+            
+            isDead = true;
+            
+            SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieDyingSound);
         }
         else
         {
             _animator.SetTrigger("damage");
+            
+            SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHitSound);
         }
     }
 
