@@ -27,6 +27,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip zombieHitSound;
     public AudioClip zombieDyingSound;
     
+    [Header("Player Sounds")]
+    public AudioSource playerChannel;
+    public AudioClip playerHurtSound;
+    public AudioClip playerDeathSound;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
