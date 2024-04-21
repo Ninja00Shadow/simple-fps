@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -12,13 +13,17 @@ public class Player : MonoBehaviour
     public GameObject bloodyScreen;
     
     public TextMeshProUGUI livesText;
-    public GameObject gameOverText;
+    public GameObject gameOverScreen;
+    public GameObject winScreen;
 
     public bool isDead;
+    
+    private Animator animator;
     
     private void Start()
     {
         livesText.text = $"Lives: {lives}";
+        animator = GetComponentInChildren<Animator>();
     }
     
     public void TakeDamage()
@@ -43,19 +48,67 @@ public class Player : MonoBehaviour
     {
         GetComponent<MouseMovement>().enabled = false;
         GetComponent<PlayerMovementScript>().enabled = false;
+
+        if (WeaponManager.Instance.activeWeaponSlot.GetComponentInChildren<Weapon>())
+        {
+            WeaponManager.Instance.activeWeaponSlot.GetComponentInChildren<Weapon>().gameObject.SetActive(false);
+        }
+
+        Cursor.lockState = CursorLockMode.None;
         
-        GetComponentInChildren<Animator>().enabled = true;
+        animator.SetBool("isDead", true);
         
         livesText.gameObject.SetActive(false);
         
         GetComponent<ScreenBlackout>().StartFade();
         StartCoroutine(ShowGameOverText());        
     }
+    
+    public void RespawnPlayer()
+    {
+        transform.position = new Vector3(0, 1.84f, -95.6f);
+        
+        GetComponent<MouseMovement>().enabled = true;
+        GetComponent<PlayerMovementScript>().enabled = true;
+        
+        animator.SetBool("isDead", false);
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        
+        livesText.gameObject.SetActive(true);
+        
+        lives = 3;
+        livesText.text = $"Lives: {lives}";
+        
+        isDead = false;
+        GetComponent<ScreenBlackout>().ResetFade();
+        
+        gameOverScreen.gameObject.SetActive(false);
+        winScreen.gameObject.SetActive(false);
+    }
+
+    public void WinGame()
+    {
+        GetComponent<MouseMovement>().enabled = false;
+        GetComponent<PlayerMovementScript>().enabled = false;
+
+        if (WeaponManager.Instance.activeWeaponSlot.GetComponentInChildren<Weapon>())
+        {
+            WeaponManager.Instance.activeWeaponSlot.GetComponentInChildren<Weapon>().isActiveWeapon = false;
+        }
+        
+        Cursor.lockState = CursorLockMode.None;
+        
+        livesText.gameObject.SetActive(false);
+        
+        // GetComponent<ScreenBlackout>().StartFade();
+        winScreen.gameObject.SetActive(true);    
+    }
 
     private IEnumerator ShowGameOverText()
     {
         yield return new WaitForSeconds(1f);
-        gameOverText.gameObject.SetActive(true);
+        gameOverScreen.gameObject.SetActive(true);
     }
 
     private IEnumerator BloodyScreenEffect()

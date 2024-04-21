@@ -12,6 +12,12 @@ public class ScreenBlackout : MonoBehaviour
     {
         StartCoroutine(FadeOut());
     }
+    
+    public void ResetFade()
+    {
+        print("Resetting fade.");
+        fadeImage.color = new Color(0f, 0f, 0f, 0f); // Black with alpha 0.
+    }
 
     private IEnumerator FadeOut()
     {

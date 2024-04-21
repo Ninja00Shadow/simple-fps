@@ -149,4 +149,19 @@ public class WeaponManager : MonoBehaviour
             _ => 0
         };
     }
+
+    public void ResetWeapons()
+    {
+        totalPistolAmmo = 0;
+        totalRifleAmmo = 0;
+        
+        foreach (GameObject slot in weaponSlots)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+        }
+    }
+    
 }
