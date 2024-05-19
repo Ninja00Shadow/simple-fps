@@ -65,6 +65,8 @@ public class WeaponManager : MonoBehaviour
     private void AddWeaponToActiveSlot(GameObject pickedWeapon)
     {
         DropCurrentWeapon(pickedWeapon);
+        
+        pickedWeapon.GetComponent<Collider>().enabled = false;
 
         pickedWeapon.transform.SetParent(activeWeaponSlot.transform, false);
 
@@ -88,6 +90,8 @@ public class WeaponManager : MonoBehaviour
             currentWeapon.transform.SetParent(pickedWeapon.transform.parent);
             currentWeapon.transform.localPosition = pickedWeapon.transform.localPosition;
             currentWeapon.transform.localRotation = pickedWeapon.transform.localRotation;
+            
+            currentWeapon.gameObject.GetComponent<Collider>().enabled = true;
         }
     }
 
