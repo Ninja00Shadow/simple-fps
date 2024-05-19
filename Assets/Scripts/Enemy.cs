@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
             isDead = true;
             
             SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieDyingSound);
+            
+            gameObject.GetComponent<Collider>().enabled = false;
         }
         else
         {

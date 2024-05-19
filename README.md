@@ -9,4 +9,6 @@
 - [Barrels](https://assetstore.unity.com/packages/3d/environments/industrial/barrels-63623?aid=1011lu5No&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker)
 - [Defense Line Vol.3 - Barrier Breaker (FREE)](https://assetstore.unity.com/packages/3d/props/weapons/defense-line-vol-3-barrier-breaker-free-251803?aid=1011lu5No&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker#content)
 - [Blood Gush](https://assetstore.unity.com/packages/vfx/particles/blood-gush-73426)
+- [Zombie model(Romero)](https://www.mixamo.com/#/?page=1&query=zombie&type=Character)
 - [Zombie sounds](https://assetstore.unity.com/packages/audio/sound-fx/creatures/zombie-voice-audio-pack-free-196645)
+- [Main menu music (17)](https://www.void1gaming.com/free-game-menu-music-pack)

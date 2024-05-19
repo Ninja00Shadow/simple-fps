@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -109,6 +110,15 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gameOverScreen.gameObject.SetActive(true);
+
+        StartCoroutine(ReturnToMainMenu());
+    }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene("MainMenu");
     }
 
     private IEnumerator BloodyScreenEffect()

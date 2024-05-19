@@ -55,6 +55,7 @@ public class ZombieSpawnController : MonoBehaviour
         }
 
         zombiesAlive.Clear();
+        deadZombies.Clear();
 
         SpawnZombies();
     }
@@ -68,9 +69,10 @@ public class ZombieSpawnController : MonoBehaviour
                 if (zombie.isDead)
                 {
                     deadZombies.Add(zombie);
-                    zombiesAlive.Remove(zombie);
                 }
             }
+            
+            zombiesAlive.RemoveAll(zombie => zombie.isDead);
         }
         else
         {

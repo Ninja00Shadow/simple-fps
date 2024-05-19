@@ -71,7 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveWeapon: 0
-  damage: 20
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.3
@@ -83,7 +82,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4442445103193933414, guid: e573d781879289b45b425bed80d33c18,
     type: 3}
   bulletSpawn: {fileID: 1383262367544808269}
-  bulletVelocity: 500
+  bulletStats: {fileID: 11400000, guid: 8311c25f10bc9574086ad604c10b9406, type: 2}
   bulletPrefabLifetime: 3
   muzzleFlash: {fileID: 4701370354364178445}
   reloadTime: 1.5
