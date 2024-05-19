@@ -42,24 +42,6 @@ public class ZombieSpawnController : MonoBehaviour
         }
     }
 
-    public void ResetZombies()
-    {
-        foreach (Enemy zombie in zombiesAlive)
-        {
-            Destroy(zombie.gameObject);
-        }
-
-        foreach (Enemy zombie in deadZombies)
-        {
-            Destroy(zombie.gameObject);
-        }
-
-        zombiesAlive.Clear();
-        deadZombies.Clear();
-
-        SpawnZombies();
-    }
-
     private void Update()
     {
         if (zombiesAlive.Count != 0)
@@ -74,12 +56,7 @@ public class ZombieSpawnController : MonoBehaviour
             
             zombiesAlive.RemoveAll(zombie => zombie.isDead);
         }
-        else
-        {
-            ResetScene.Instance.WinGame();
-        }
-
-
+        
         enemiesLeftText.text = $"-Enemies:  {zombiesAlive.Count}/10";
     }
 }

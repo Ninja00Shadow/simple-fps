@@ -64,29 +64,6 @@ public class Player : MonoBehaviour
         GetComponent<ScreenBlackout>().StartFade();
         StartCoroutine(ShowGameOverText());        
     }
-    
-    public void RespawnPlayer()
-    {
-        transform.position = new Vector3(0, 1.84f, -95.6f);
-        
-        GetComponent<MouseMovement>().enabled = true;
-        GetComponent<PlayerMovementScript>().enabled = true;
-        
-        animator.SetBool("isDead", false);
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        
-        livesText.gameObject.SetActive(true);
-        
-        lives = 3;
-        livesText.text = $"Lives: {lives}";
-        
-        isDead = false;
-        GetComponent<ScreenBlackout>().ResetFade();
-        
-        gameOverScreen.gameObject.SetActive(false);
-        winScreen.gameObject.SetActive(false);
-    }
 
     public void WinGame()
     {
