@@ -9,6 +9,8 @@ public class InteractionManager : MonoBehaviour
     public Weapon hoveredWeapon = null;
     public AmmoCrate hoveredAmmoCrate = null;
     
+    public Door hoveredDoor = null;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,7 +29,7 @@ public class InteractionManager : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, 20))
+        if (Physics.Raycast(ray, out hit, 5))
         {
             GameObject objectHit = hit.transform.gameObject;
             
@@ -77,6 +79,30 @@ public class InteractionManager : MonoBehaviour
                 if (hoveredAmmoCrate)
                 {
                     hoveredAmmoCrate.GetComponent<Outline>().enabled = false;
+                }
+            }
+            
+            if (objectHit.GetComponent<Door>())
+            {
+                // Disable outline on previously hovered door
+                if (hoveredDoor)
+                {
+                    hoveredDoor.GetComponent<Outline>().enabled = false;
+                }
+                
+                hoveredDoor = objectHit.gameObject.GetComponent<Door>();
+                hoveredDoor.GetComponent<Outline>().enabled = true;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hoveredDoor.OpenDoor();
+                }
+            }
+            else
+            {
+                if (hoveredDoor)
+                {
+                    hoveredDoor.GetComponent<Outline>().enabled = false;
                 }
             }
         }
