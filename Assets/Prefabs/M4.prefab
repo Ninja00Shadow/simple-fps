@@ -275,6 +275,7 @@ MonoBehaviour:
   shootingDelay: 0.12
   bulletsPerBurst: 1
   burstBulletsLeft: 0
+  pelletsPerShot: 8
   spreadIntensity: 0
   hipSpreadIntensity: 0.5
   adsSpreadIntensity: 0.1

@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     
     private NavMeshAgent agent;
     
+    public List<GameObject> hitBoxes;
+    
     public bool isDead;
     
     private void Start()
@@ -33,7 +35,40 @@ public class Enemy : MonoBehaviour
             
             SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieDyingSound);
             
-            gameObject.GetComponent<Collider>().enabled = false;
+            // gameObject.GetComponent<Collider>().enabled = false;
+            foreach (var hitBox in hitBoxes)
+            {
+                hitBox.GetComponent<Collider>().enabled = false;
+            }
+        }
+        // else
+        // {
+        //     _animator.SetTrigger("damage");
+        //     
+        //     SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHitSound);
+        // }
+    }
+
+    public void HeadShot(int damage)
+    {
+        hp -= damage * 3;
+        
+        Debug.Log("Headshot! HP: " + hp);
+        
+        if (hp <= 0)
+        {
+            int random = Random.Range(0, 2) + 1;
+            _animator.SetTrigger("die" + random);
+            
+            isDead = true;
+            
+            SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieDyingSound);
+
+            foreach (var hitBox in hitBoxes)
+            {
+                hitBox.GetComponent<Collider>().enabled = false;
+            }
+            // gameObject.GetComponent<Collider>().enabled = false;
         }
         else
         {
@@ -41,17 +76,17 @@ public class Enemy : MonoBehaviour
             
             SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHitSound);
         }
-    }
+    } 
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 2.5f); // attack range
-        
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, 18f); // detection range
-        
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, 21f); // stop chase range
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(transform.position, 2.5f); // attack range
+    //     
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(transform.position, 18f); // detection range
+    //     
+    //     Gizmos.color = Color.green;
+    //     Gizmos.DrawWireSphere(transform.position, 21f); // stop chase range
+    // }
 }

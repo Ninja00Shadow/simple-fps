@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log(other.gameObject.tag);
+        
         if (other.gameObject.CompareTag("Target"))
         {
             CreateBulletImpactEffect(other);
@@ -28,11 +30,22 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<Bottle>().Shatter();
         }
 
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("EnemyHead"))
         {
-            if (!other.gameObject.GetComponent<Enemy>().isDead)
+            if (!other.transform.parent.gameObject.GetComponent<Enemy>().isDead)
             {
-                other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                other.transform.parent.gameObject.GetComponent<Enemy>().HeadShot(damage);
+            }
+            
+            CreateBloodSprayEffect(other);
+            
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (!other.transform.parent.gameObject.GetComponent<Enemy>().isDead)
+            {
+                other.transform.parent.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
             
             CreateBloodSprayEffect(other);
