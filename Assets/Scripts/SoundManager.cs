@@ -11,9 +11,13 @@ public class SoundManager : MonoBehaviour
     
     public AudioClip M1911ShootingSound;
     public AudioClip M4ShootingSound;
+    public AudioClip BenneliM4ShootingSound;
     
     public AudioSource reloadSoundM1911;
     public AudioSource reloadSoundM4;
+    public AudioSource benelliM4ReloadChannel;
+    
+    public AudioClip reloadSoundBenneliM4;
     
     public AudioSource emptyMagazineSoundM1911;
     
@@ -55,6 +59,9 @@ public class SoundManager : MonoBehaviour
             case Weapon.WeaponModel.M4:
                 shootingChannel.PlayOneShot(M4ShootingSound);
                 break;
+            case Weapon.WeaponModel.Benelli_M4:
+                shootingChannel.PlayOneShot(BenneliM4ShootingSound);
+                break;
         }
     }
     
@@ -80,7 +87,18 @@ public class SoundManager : MonoBehaviour
             case Weapon.WeaponModel.M4:
                 reloadSoundM4.Play();
                 break;
+            case Weapon.WeaponModel.Benelli_M4:
+                StartCoroutine(PlayBenelliM4ReloadSound());
+                break;
         }
     }
-    
+
+    private IEnumerator PlayBenelliM4ReloadSound()
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            benelliM4ReloadChannel.PlayOneShot(reloadSoundBenneliM4);
+            yield return new WaitForSeconds(0.4f);
+        }
+    }
 }

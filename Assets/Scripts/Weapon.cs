@@ -18,6 +18,9 @@ public class Weapon : MonoBehaviour
     [Header("Burst")]
     public int bulletsPerBurst = 3;
     public int burstBulletsLeft;
+    
+    [Header("Shotgun")]
+    public int pelletsPerShot = 8;
 
     [Header("Spread")]
     public float spreadIntensity;
@@ -49,7 +52,8 @@ public class Weapon : MonoBehaviour
     public enum WeaponModel
     {
         M1911,
-        M4
+        M4,
+        Benelli_M4
     }
 
     public WeaponModel currentWeaponModel;
@@ -58,7 +62,8 @@ public class Weapon : MonoBehaviour
     {
         Single,
         Burst,
-        Auto
+        Auto,
+        Shotgun
     }
 
     public ShootingMode currentShootingMode;
@@ -106,7 +111,7 @@ public class Weapon : MonoBehaviour
             {
                 isShooting = Input.GetKey(KeyCode.Mouse0); // Hold to shoot
             }
-            else if (currentShootingMode is ShootingMode.Single or ShootingMode.Burst)
+            else if (currentShootingMode is ShootingMode.Single or ShootingMode.Burst or ShootingMode.Shotgun)
             {
                 isShooting = Input.GetKeyDown(KeyCode.Mouse0); // Click to shoot
             }
@@ -178,18 +183,36 @@ public class Weapon : MonoBehaviour
         SoundManager.Instance.PlayShootingSound(currentWeaponModel);
 
         readyToShoot = false;
-
-        Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
-
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.damage = damage;
+        if (currentShootingMode != ShootingMode.Shotgun)
+        {
+            Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         
-        bullet.transform.forward = shootingDirection;
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.damage = damage;
+        
+            bullet.transform.forward = shootingDirection;
 
-        bullet.GetComponent<Rigidbody>().AddForce(shootingDirection * bulletVelocity, ForceMode.Impulse);
-        StartCoroutine(DestroyBullet(bullet, bulletPrefabLifetime));
+            bullet.GetComponent<Rigidbody>().AddForce(shootingDirection * bulletVelocity, ForceMode.Impulse);
+            StartCoroutine(DestroyBullet(bullet, bulletPrefabLifetime));
+        }
+        else
+        {
+            for (int i = 0; i < pelletsPerShot; i++)
+            {
+                Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+        
+                Bullet bulletScript = bullet.GetComponent<Bullet>();
+                bulletScript.damage = damage;
+        
+                bullet.transform.forward = shootingDirection;
+
+                bullet.GetComponent<Rigidbody>().AddForce(shootingDirection * bulletVelocity, ForceMode.Impulse);
+                StartCoroutine(DestroyBullet(bullet, bulletPrefabLifetime));
+            }
+        }
 
         if (allowReset)
         {
@@ -251,12 +274,20 @@ public class Weapon : MonoBehaviour
             targetPoint = ray.GetPoint(100); // Hit nothing
         }
 
+        // Vector3 direction = targetPoint - bulletSpawn.position;
+        //
+        // float zSpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        // float ySpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        //
+        // return direction + new Vector3(0, ySpread, zSpread);
         Vector3 direction = targetPoint - bulletSpawn.position;
 
-        float zSpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
-        float ySpread = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        float spreadX = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        float spreadY = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
 
-        return direction + new Vector3(0, ySpread, zSpread);
+        direction += bulletSpawn.right * spreadX + bulletSpawn.up * spreadY;
+
+        return direction;
     }
 
     private void ResetShot()

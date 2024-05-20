@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     [Header("Ammo")] 
     public int totalPistolAmmo = 0;
     public int totalRifleAmmo = 0;
+    public int totalShotgunAmo = 0;
     
 
     private void Awake()
@@ -116,6 +117,7 @@ public class WeaponManager : MonoBehaviour
     {
         totalPistolAmmo += ammoCrate.pistolAmmo;
         totalRifleAmmo += ammoCrate.rifleAmmo;
+        totalShotgunAmo += ammoCrate.shotgunAmmo;
     }
 
     public void DecreaseTotalAmmo(int bulletsToDecrease, Weapon.WeaponModel weaponModel)
@@ -127,6 +129,9 @@ public class WeaponManager : MonoBehaviour
                 break;
             case Weapon.WeaponModel.M4:
                 totalRifleAmmo -= bulletsToDecrease;
+                break;
+            case Weapon.WeaponModel.Benelli_M4:
+                totalShotgunAmo -= bulletsToDecrease;
                 break;
         }
     }
@@ -141,6 +146,9 @@ public class WeaponManager : MonoBehaviour
             case Weapon.WeaponModel.M4:
                 totalRifleAmmo += bulletsToIncrease;
                 break;
+            case Weapon.WeaponModel.Benelli_M4:
+                totalShotgunAmo += bulletsToIncrease;
+                break;
         }
     }
     
@@ -150,6 +158,7 @@ public class WeaponManager : MonoBehaviour
         {
             Weapon.WeaponModel.M1911 => totalPistolAmmo,
             Weapon.WeaponModel.M4 => totalRifleAmmo,
+            Weapon.WeaponModel.Benelli_M4 => totalShotgunAmo,
             _ => 0
         };
     }
