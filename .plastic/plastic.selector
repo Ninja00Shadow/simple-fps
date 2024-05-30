@@ -1,0 +1,4 @@
+repository "FPS@Ninja00Shadow@cloud"
+  path "/"
+    smartbranch "/main"  
+     

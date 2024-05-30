@@ -301,4 +301,15 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
     }
+    
+    public string GetWeaponName()
+    {
+        return currentWeaponModel switch
+        {
+            WeaponModel.M1911 => "M1911",
+            WeaponModel.M4 => "M4",
+            WeaponModel.Benelli_M4 => "Benelli M4",
+            _ => throw new ArgumentOutOfRangeException()
+        };
+    }
 }

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    internal Animator animator;
+    private Animator animator;
+    
+    public string destinationScene;
     
     private void Start()
     {
@@ -14,5 +17,16 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         animator.SetTrigger("Open");
+        
+        SaveLoadManager.Instance.SaveMapData();
+        
+        StartCoroutine(LoadScene());
+    }
+    
+    private IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        SceneManager.LoadScene(destinationScene);
     }
 }

@@ -31,7 +31,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        activeWeaponSlot = weaponSlots[0];
+        Debug.Log("WeaponManager initialized");
+        // activeWeaponSlot = weaponSlots[0];
     }
 
     private void Update()
@@ -112,6 +113,11 @@ public class WeaponManager : MonoBehaviour
             newWeapon.isActiveWeapon = true;
         }
     }
+    
+    public int ActiveWeaponIndex()
+    {
+        return weaponSlots.IndexOf(activeWeaponSlot);
+    }
 
     public void PickupAmmo(AmmoCrate ammoCrate)
     {
@@ -161,20 +167,6 @@ public class WeaponManager : MonoBehaviour
             Weapon.WeaponModel.Benelli_M4 => totalShotgunAmo,
             _ => 0
         };
-    }
-
-    public void ResetWeapons()
-    {
-        totalPistolAmmo = 0;
-        totalRifleAmmo = 0;
-        
-        foreach (GameObject slot in weaponSlots)
-        {
-            if (slot.transform.childCount > 0)
-            {
-                Destroy(slot.transform.GetChild(0).gameObject);
-            }
-        }
     }
     
 }

@@ -10,6 +10,12 @@ public class GlobalReferences : MonoBehaviour
     
     public GameObject bloodSplatterEffectPrefab;
     
+    public GameObject m1911Prefab;
+    
+    public GameObject m4Prefab;
+    
+    public GameObject benneliPrefab;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)

@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int lives = 3;
+    public int health = 3;
     
     public GameObject bloodyScreen;
     
@@ -23,15 +22,15 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
-        livesText.text = $"Lives: {lives}";
+        livesText.text = $"Lives: {health}";
         animator = GetComponentInChildren<Animator>();
     }
     
     public void TakeDamage()
     {
-        lives -= 1;
+        health -= 1;
         
-        if (lives <= 0)
+        if (health <= 0)
         {
             PlayerDead();
             isDead = true;
@@ -40,7 +39,7 @@ public class Player : MonoBehaviour
         else
         {
             StartCoroutine(BloodyScreenEffect());
-            livesText.text = $"Lives: {lives}";
+            livesText.text = $"Lives: {health}";
             SoundManager.Instance.playerChannel.PlayOneShot(SoundManager.Instance.playerHurtSound);
         }
     }
