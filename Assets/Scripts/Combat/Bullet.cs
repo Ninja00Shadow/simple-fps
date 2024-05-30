@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject.tag);
-        
         if (other.gameObject.CompareTag("Target"))
         {
             CreateBulletImpactEffect(other);

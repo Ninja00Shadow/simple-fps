@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f746e4bd67e4d4fa9ef3d36ea4c7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
+  health: 100
   bloodyScreen: {fileID: 0}
   livesText: {fileID: 0}
   gameOverScreen: {fileID: 0}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f746e4bd67e4d4fa9ef3d36ea4c7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
+  health: 3
   bloodyScreen: {fileID: 0}
   livesText: {fileID: 0}
   gameOverScreen: {fileID: 0}

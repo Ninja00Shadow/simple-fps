@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int health = 3;
+    public int health = 100;
     
     public GameObject bloodyScreen;
     
@@ -22,13 +22,13 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
-        livesText.text = $"Lives: {health}";
+        livesText.text = $"Health: {health}";
         animator = GetComponentInChildren<Animator>();
     }
     
-    public void TakeDamage()
+    public void TakeDamage(int damageAmount)
     {
-        health -= 1;
+        health -= damageAmount;
         
         if (health <= 0)
         {
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         else
         {
             StartCoroutine(BloodyScreenEffect());
-            livesText.text = $"Lives: {health}";
+            livesText.text = $"Heealth: {health}";
             SoundManager.Instance.playerChannel.PlayOneShot(SoundManager.Instance.playerHurtSound);
         }
     }
@@ -138,12 +138,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Player collided with something!");
         if (other.gameObject.CompareTag("ZombieHand"))
         {
             if (!isDead)
             { 
-                TakeDamage();
+                TakeDamage(25);
             }
         }
     }
