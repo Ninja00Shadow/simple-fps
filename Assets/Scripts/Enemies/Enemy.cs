@@ -41,12 +41,14 @@ public class Enemy : MonoBehaviour
                 hitBox.GetComponent<Collider>().enabled = false;
             }
         }
-        // else
-        // {
-        //     _animator.SetTrigger("damage");
-        //     
-        //     SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHitSound);
-        // }
+        else
+        {
+            // _animator.SetTrigger("damage");
+            
+            SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHitSound);
+            
+            _animator.SetBool("isChasing", true);
+        }
     }
 
     public void HeadShot(int damage)
@@ -75,6 +77,8 @@ public class Enemy : MonoBehaviour
             _animator.SetTrigger("damage");
             
             SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHitSound);
+            
+            _animator.SetBool("isChasing", true);
         }
     } 
 

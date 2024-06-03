@@ -12,13 +12,16 @@ public class ZombieChaseState : StateMachineBehaviour
     
     public float stopChaseRange = 21f;
     public float attackRange = 2.5f;
-    
+    public float searchDuration = 10f;
+    private float searchTimer;
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = animator.GetComponent<NavMeshAgent>();
         
         agent.speed = chaseSpeed;
+        searchTimer = 0f;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -32,9 +35,18 @@ public class ZombieChaseState : StateMachineBehaviour
         animator.transform.LookAt(player);
         
         float distanceFromPlayer = Vector3.Distance(player.position, animator.transform.position);
+
         if (distanceFromPlayer > stopChaseRange)
         {
-            animator.SetBool("isChasing", false);
+            searchTimer += Time.deltaTime;
+            if (searchTimer >= searchDuration)
+            {
+                animator.SetBool("isChasing", false);
+            }
+        }
+        else
+        {
+            searchTimer = 0f;
         }
 
         if (distanceFromPlayer <= attackRange)
@@ -50,3 +62,4 @@ public class ZombieChaseState : StateMachineBehaviour
         SoundManager.Instance.zombieChannel1.Stop();
     }
 }
+
