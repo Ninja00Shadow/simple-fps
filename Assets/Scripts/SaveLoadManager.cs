@@ -19,6 +19,9 @@ public class SaveLoadManager : MonoBehaviour
     public int rifleAmmo;
     public int shotgunAmmo;
     
+    [Header("Story Items")]
+    public bool[] storyItemsCollected;
+    
     private void Awake()
     {
         Debug.Log("SaveLoadManager initialized");
@@ -111,14 +114,26 @@ public class SaveLoadManager : MonoBehaviour
         };
     }
     
+    public void SaveStoryItemsData()
+    {
+        storyItemsCollected = ItemDisplayManager.Instance.itemsCollected;
+    }
+    
+    public void LoadStoryItemsData()
+    {
+        ItemDisplayManager.Instance.itemsCollected = storyItemsCollected;
+    }
+    
     public void SaveMapData()
     {
         SavePlayerData();
+        SaveStoryItemsData();
     }
     
     public void LoadMapData()
     {
         LoadPlayerData();
+        LoadStoryItemsData();
     }
 
     private void OnEnable()

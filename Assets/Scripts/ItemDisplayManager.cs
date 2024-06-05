@@ -27,7 +27,7 @@ public class ItemDisplayManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+        InitialSetup();
     }
     void Start()
     {
@@ -35,6 +35,16 @@ public class ItemDisplayManager : MonoBehaviour
         
         player = GameObject.Find("Player");
         
+        // itemsCollected = new bool[items.Length];
+        //
+        // itemsCollected[0] = true;
+        // itemsCollected[1] = true;
+        //
+        // items[0].SetActive(true);
+    }
+    
+    private void InitialSetup()
+    {
         itemsCollected = new bool[items.Length];
         
         itemsCollected[0] = true;
