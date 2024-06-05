@@ -11,6 +11,8 @@ public class InteractionManager : MonoBehaviour
     
     public Door hoveredDoor = null;
     
+    public StoryItem hoveredStoryItem = null;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -103,6 +105,30 @@ public class InteractionManager : MonoBehaviour
                 if (hoveredDoor)
                 {
                     hoveredDoor.GetComponent<Outline>().enabled = false;
+                }
+            }
+            
+            if (objectHit.GetComponent<StoryItem>())
+            {
+                if (hoveredStoryItem)
+                {
+                    hoveredStoryItem.GetComponent<Outline>().enabled = false;
+                }
+                
+                hoveredStoryItem = objectHit.gameObject.GetComponent<StoryItem>();
+                hoveredStoryItem.GetComponent<Outline>().enabled = true;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    ItemDisplayManager.Instance.CollectItem(hoveredStoryItem);
+                    Destroy(objectHit.gameObject);
+                }
+            }
+            else
+            {
+                if (hoveredStoryItem)
+                {
+                    hoveredStoryItem.GetComponent<Outline>().enabled = false;
                 }
             }
         }

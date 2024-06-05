@@ -198,6 +198,7 @@ Transform:
   - {fileID: 6733736017792283498}
   - {fileID: 7035614453810105262}
   - {fileID: 3009216768876596647}
+  - {fileID: 4382285196402832562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7606067796319943678
@@ -247,6 +248,7 @@ MonoBehaviour:
   hoveredWeapon: {fileID: 0}
   hoveredAmmoCrate: {fileID: 0}
   hoveredDoor: {fileID: 0}
+  hoveredStoryItem: {fileID: 0}
 --- !u!1 &7676904219313873549
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +304,61 @@ MonoBehaviour:
   tacticalAmountText: {fileID: 0}
   emptySlotSprite: {fileID: 21300000, guid: d8758308ef6ded5438d9ce66895fa781, type: 3}
   crosshair: {fileID: 0}
+--- !u!1 &8119831419408328264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4382285196402832562}
+  - component: {fileID: 9174588646704256903}
+  m_Layer: 0
+  m_Name: ItemDisplayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4382285196402832562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119831419408328264}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -27.650223, y: 30.658203, z: -57.57267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4890389215882914227}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9174588646704256903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119831419408328264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5452fd9ac8179db488ec4e9d2dee22a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsCanvas: {fileID: 0}
+  camerasToDisable:
+  - {fileID: 0}
+  - {fileID: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemsCollected: 
+  currentItemIndex: 0
 --- !u!1 &8877954835495861408
 GameObject:
   m_ObjectHideFlags: 0

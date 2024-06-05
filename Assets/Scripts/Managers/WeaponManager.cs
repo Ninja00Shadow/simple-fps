@@ -114,6 +114,24 @@ public class WeaponManager : MonoBehaviour
         }
     }
     
+    public void DisableActiveWeapon()
+    {
+        if (activeWeaponSlot.transform.childCount > 0)
+        {
+            Weapon currentWeapon = activeWeaponSlot.transform.GetChild(0).GetComponent<Weapon>();
+            currentWeapon.isActiveWeapon = false;
+        }
+    }
+    
+    public void EnableActiveWeapon()
+    {
+        if (activeWeaponSlot.transform.childCount > 0)
+        {
+            Weapon currentWeapon = activeWeaponSlot.transform.GetChild(0).GetComponent<Weapon>();
+            currentWeapon.isActiveWeapon = true;
+        }
+    }
+    
     public int ActiveWeaponIndex()
     {
         return weaponSlots.IndexOf(activeWeaponSlot);
